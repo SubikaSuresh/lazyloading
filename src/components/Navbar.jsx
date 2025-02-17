@@ -4,16 +4,10 @@ import "../styles/Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h2>Image Gallery</h2>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/intro">Intro</Link></li>
-        <li><Link to="/travel">Travel</Link></li>
-        <li><Link to="/art">Art</Link></li>
-        <li><Link to="/food">Food</Link></li>
-        <li><Link to="/books">Books</Link></li>
-        <li><Link to="/login">Login</Link></li>
-      </ul>
+      <Link to="/">Home</Link>
+      <Link to="/gallery">Gallery</Link>
+      <Link to="/intro">Intro</Link>
+      <Link to="/login">Login</Link>
     </nav>
   );
 };

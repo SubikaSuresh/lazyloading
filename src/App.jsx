@@ -1,23 +1,25 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Intro from "./pages/Intro";
-import Gallery from "./pages/Gallery";
-import Login from "./pages/Login";
+
+// Lazy loading pages
+const Home = lazy(() => import("./pages/Home"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Intro = lazy(() => import("./pages/Intro"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/intro" element={<Intro />} />
-        <Route path="/travel" element={<Gallery category="travel" />} />
-        <Route path="/art" element={<Gallery category="art" />} />
-        <Route path="/food" element={<Gallery category="food" />} />
-        <Route path="/books" element={<Gallery category="books" />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <Suspense fallback={<div className="loading-screen">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/intro" element={<Intro />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
