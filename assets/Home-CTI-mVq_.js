@@ -1,0 +1,1 @@
+import{j as e}from"./index-i2xkO9z4.js";import{u as o}from"./userStore-DrxarM5R.js";const i=()=>{const s=o(r=>r.user);return e.jsxs("div",{className:"home",children:[e.jsxs("h1",{children:["Welcome ",s||"to the Image Gallery"]}),e.jsx("p",{children:"Explore amazing images in categories like Travel, Art, Food, and Books."})]})};export{i as default};
